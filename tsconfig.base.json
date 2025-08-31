@@ -14,7 +14,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular-monorepo/data-models": ["libs/data-models/src/index.ts"],
+      "@angular-monorepo/login": ["libs/login/src/index.ts"],
+      "@angular-monorepo/material": ["libs/material/src/index.ts"],
+      "@angular-monorepo/dmodel": ["dmodel/src/index.ts"],
+      "@angular-monorepo/orders": ["libs/orders/src/index.ts"],
+      "@angular-monorepo/products": ["libs/products/src/index.ts"],
+      "@angular-monorepo/shared-ui": ["libs/shared/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
