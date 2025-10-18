@@ -1,6 +1,16 @@
 {
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": true
+    }
+  },
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "extends": "nx/presets/npm.json",
   "defaultBase": "master",
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
@@ -46,6 +56,16 @@
           "codeCoverage": true
         }
       }
+    },
+    "@nx/angular:ng-packagr-lite": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "@nx/angular:package": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "plugins": [

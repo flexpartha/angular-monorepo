@@ -17,4 +17,28 @@
       </div>
     </form>
   </mat-card-content>
+  <div
+    style="
+      display: flex;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-direction: row;
+    "
+  >
+    <mat-card-actions>
+      <button type="button" mat-raised-button (click)="showSuccess()">
+        Show Success
+      </button>
+    </mat-card-actions>
+    <mat-card-actions>
+      <button type="button" mat-raised-button (click)="showError()">
+        Show Error
+      </button>
+    </mat-card-actions>
+    <mat-card-actions>
+      <button type="button" mat-raised-button (click)="showWarning()">
+        Show Warning
+      </button>
+    </mat-card-actions>
+  </div>
 </mat-card>

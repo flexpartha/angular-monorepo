@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular-monorepo/material';
 import { User } from '@angular-monorepo/dmodel';
+import { NotificationFactoryService } from '@notification-library/notification';
 import {
   FormBuilder,
   FormControl,
@@ -23,7 +24,11 @@ export class LoginComponent implements OnInit {
 
   @Output() submitForm: EventEmitter<User> = new EventEmitter<User>();
 
-  constructor(private fb: FormBuilder, private _router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private _router: Router,
+    private notificationFactory: NotificationFactoryService
+  ) {}
 
   ngOnInit(): void {
     this.createLoginForm();
@@ -50,5 +55,20 @@ export class LoginComponent implements OnInit {
     ) {
       this._router.navigate(['/products']);
     }
+  }
+
+  showSuccess() {
+    const notification = this.notificationFactory.createNotification('success');
+    notification.show('Login Successful!');
+  }
+
+  showError() {
+    const notification = this.notificationFactory.createNotification('error');
+    notification.show('Login Failed! Please check your credentials.');
+  }
+
+  showWarning() {
+    const notification = this.notificationFactory.createNotification('warning');
+    notification.show('Warning: Multiple failed login attempts detected.');
   }
 }
